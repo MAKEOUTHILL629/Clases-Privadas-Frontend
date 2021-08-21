@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+
 import { SharedModule } from '@shared/shared.module';
 import { ProfesorDetailComponent } from './profesor-detail/profesor-detail.component';
 import { ProfesorListComponent } from './profesor-list/profesor-list.component';
@@ -14,7 +15,7 @@ import { ProfesorRoutingModule } from './profesor-routing.module';
   ],
   imports: [
     SharedModule,
-    ProfesorRoutingModule
+    ProfesorRoutingModule,
   ]
 })
 export class ProfesorModule { }
