@@ -9,8 +9,7 @@ import { MenuItem } from '@core/modelo/menu-item';
 export class NavigationComponent implements OnInit {
 
   items : MenuItem[] = [
-    {url: '/list-profesor', nombre: 'Profesor'},
-    {url: '/detail', nombre: 'Lista Profesores'},
+    {url: '/dashboard/profesor', nombre: 'Profesores'},
     {url: '/estudiante', nombre: 'Estudiante'}
   ]
   constructor() { }

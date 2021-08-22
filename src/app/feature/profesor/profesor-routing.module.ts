@@ -10,11 +10,11 @@ import { ProfesorListComponent } from './profesor-list/profesor-list.component';
 
 const routes: Routes = [
   {
-    path: 'list-profesor',
+    path: '',
     component: ProfesorListComponent,
   },
   {
-    path: 'detail',
+    path: ':id',
     component: ProfesorDetailComponent,
   }
 

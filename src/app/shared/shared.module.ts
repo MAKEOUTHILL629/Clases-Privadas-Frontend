@@ -8,6 +8,7 @@ import { ErrorCamposPlantillaComponent } from "./directivas/error-campos/compone
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { TrackByPipe } from "./pipe/track-by.pipe";
 import { CardProfesorComponent } from './components/cards/card-profesor/card-profesor.component';
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CardProfesorComponent } from './components/cards/card-profesor/card-pro
     FormsModule,
     HttpClientModule,
     CommonModule,
+    RouterModule
   ],
   exports: [
     CommonModule,

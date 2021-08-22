@@ -9,19 +9,22 @@ import { Profesor } from '../../../data/interfaces/profesor.metada';
 export class ProfesorListComponent implements OnInit {
   public profesores: Profesor[] = [
     {
-      nombres : "Luis Felipe",
-      apellidos : "Hernandez Chica",
-      profesion : "Programador",
+      id: 1,
+      nombres : "Prueba 1",
+      apellidos : "Prueba 1",
+      profesion : "Programador 1",
     },
     {
-      nombres : "Luis Felipe2",
-      apellidos : "Hernandez Chica2",
-      profesion : "Programador2",
+      id: 2,
+      nombres : "Prueba 2",
+      apellidos : "Prueba 2",
+      profesion : "Programador 2",
     },
     {
-      nombres : "Luis Felipe3",
-      apellidos : "Hernandez Chica3",
-      profesion : "Programador3",
+      id: 3,
+      nombres : "Prueba 3",
+      apellidos : "Prueba 3",
+      profesion : "Programador 3",
     },
   ]
   constructor() { }
