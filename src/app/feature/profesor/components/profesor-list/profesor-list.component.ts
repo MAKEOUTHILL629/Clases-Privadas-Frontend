@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfesorService } from '../../../data/services/api/profesor.service';
+import { ProfesorService } from '../../shared/service/profesor.service';
 import { Observable } from 'rxjs';
-import { Profesor } from '../../../data/interfaces/profesor.metada';
+import { Profesor } from '../../shared/model/profesor';
 
 @Component({
   selector: 'app-profesor-list',
@@ -12,11 +12,10 @@ export class ProfesorListComponent implements OnInit {
 
 
   public listarProfesores: Observable<Profesor[]>;
-  constructor(protected productoService: ProfesorService) { }
+  constructor(protected profesorService: ProfesorService) { }
 
   ngOnInit(): void {
-    this.listarProfesores = this.productoService.consultar();
-    console.log(this.listarProfesores)
+    this.listarProfesores = this.profesorService.consultar();
   }
 
 }

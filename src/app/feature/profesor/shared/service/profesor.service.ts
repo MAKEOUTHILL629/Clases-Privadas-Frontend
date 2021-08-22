@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
-import { Profesor } from '../../../data/interfaces/profesor.metada';
-import { environment } from '../../../../environments/environment.dev';
+import { Profesor } from '../model/profesor';
+import { environment } from 'src/environments/environment.dev';
 
 @Injectable({
   providedIn: 'root'
@@ -17,4 +17,6 @@ export class ProfesorService {
   public consultarEspecifico( id : number){
     return this.http.doGet<Profesor>(`${environment.endpoint}/profesores/${id}`, this.http.optsName('obtine un profesor en especifico'));
   }
+
+
 }

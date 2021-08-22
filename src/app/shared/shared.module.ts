@@ -9,6 +9,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { TrackByPipe } from "./pipe/track-by.pipe";
 import { CardProfesorComponent } from './components/cards/card-profesor/card-profesor.component';
 import { RouterModule } from "@angular/router";
+import { CardEstudianteComponent } from './components/cards/card-estudiante/card-estudiante.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RouterModule } from "@angular/router";
     MensajeErrorCamposSubmitDirective,
     TrackByPipe,
     CardProfesorComponent,
+    CardEstudianteComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -36,6 +38,7 @@ import { RouterModule } from "@angular/router";
     FormsModule,
     TrackByPipe,
     CardProfesorComponent,
+    CardEstudianteComponent
   ],
 })
 export class SharedModule {}

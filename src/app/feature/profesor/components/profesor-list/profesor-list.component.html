@@ -1,0 +1,12 @@
+<div class="row w-100">
+  <div class="col-12">
+    <h2 class="text-center fs-2 fw-bolder">Lista de profesores</h2>
+  </div>
+  <div class="justify-content-around justify-content-md-between w-100 row mx-2">
+    <app-card-profesor
+      class="col-10 col-md-4 col-xl-2 my-4"
+      *ngFor="let profesor of listarProfesores | async"
+      [profesorData]="profesor"
+    ></app-card-profesor>
+  </div>
+</div>

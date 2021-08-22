@@ -1,0 +1,43 @@
+<h2 class="text-center fs-2 fw-bolder">Profesor Detalle</h2>
+<div class="card   w-50 mx-auto" >
+  <div class="row g-0 justify-content-around align-items-center">
+
+    <div class="col-md-5">
+
+      <div class="card-body">
+        <h5 class="card-title">{{ profesorActual.persona.nombres + " " + profesorActual.persona.apellidos }}</h5>
+        <p class="card-text">{{ profesorActual.profesion }}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let temaProfesor of temasProfesorActual | async">{{ temaProfesor.tema }}</li>
+      </ul>
+      <div class="card-body">
+        <div class="btn-group">
+          <a href="#" class="btn btn-primary">Agregar Horario</a>
+        <a href="#" class="btn btn-primary">Agregar Tema</a>
+        <a href="#" class="btn btn-primary">Editar Profesor</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4 mx-1 ">
+      <table class="table table-striped shadow  rounded">
+        <thead>
+          <tr>
+            <th scope="col">Dia</th>
+            <th scope="col">Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let horario of horariosProfesorActual |async">
+            <th scope="row">{{horario.diaSemana}}</th>
+            <td>{{ horario.hora }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>

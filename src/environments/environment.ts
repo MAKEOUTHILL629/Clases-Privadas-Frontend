@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  endpoint: '/Clases'
+  endpoint: '/Clases',
+  uri: 'http://localhost:8080'
 };
 
 /*

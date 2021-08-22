@@ -1,8 +1,0 @@
-<div class="row w-100">
-  <div class="col-10">
-    <h2>Lista de profesores</h2>
-  </div>
-   <div class="justify-content-space-between w-100 row mx-2">
-    <app-card-profesor class="col-12 col-md-6 col-xl-4 my-4 " *ngFor="let profesor of listarProfesores | async" [profesorData]="profesor" ></app-card-profesor>
-   </div>
-</div>

@@ -10,7 +10,7 @@ export class NavigationComponent implements OnInit {
 
   items : MenuItem[] = [
     {url: '/dashboard/profesor', nombre: 'Profesores'},
-    {url: '/estudiante', nombre: 'Estudiante'}
+    {url: '/dashboard/estudiante', nombre: 'Estudiantes'}
   ]
   constructor() { }
 

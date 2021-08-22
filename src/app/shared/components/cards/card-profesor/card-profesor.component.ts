@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Profesor } from '../../../../data/interfaces/profesor.metada';
+import { Profesor } from '@feature/profesor/shared/model/profesor';
 
 @Component({
   selector: 'app-card-profesor',

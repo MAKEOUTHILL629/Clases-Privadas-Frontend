@@ -3,13 +3,13 @@ import { Routes, RouterModule } from "@angular/router";
 //import { features } from 'process';
 //import { LayoutComponent } from '@core/components/layout/layout.component';
 //import { SecurityGuard } from '@core/guard/security.guard';
-import { SkeletonComponent } from "./layout/skeleton/skeleton.component";
+import { SkeletonComponent } from "@layout/skeleton/skeleton.component";
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/dashboard/profesor',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "/dashboard/profesor",
+    pathMatch: "full",
   },
   {
     path: "dashboard",
@@ -18,23 +18,37 @@ const routes: Routes = [
       {
         path: "profesor",
         loadChildren: () =>
-          import("./feature/profesor/profesor.module").then(
+          import("@feature/profesor/profesor.module").then(
             (m) => m.ProfesorModule
           ),
       },
       {
-        path: '**',
-        redirectTo: '/dashboard/profesor',
-        pathMatch: 'full'
-      }
+        path: "estudiante",
+        loadChildren: () =>
+          import("@feature/estudiante/estudiante.module").then(
+            (m) => m.EstudianteModule
+          ),
+      },
+      {
+        path: "**",
+        redirectTo: "/dashboard/profesor",
+        pathMatch: "full",
+      },
     ],
+  },
+  {
+    path: "estudiante",
+    loadChildren: () =>
+      import("@feature/estudiante/estudiante.module").then(
+        (m) => m.EstudianteModule
+      ),
   },
 
   {
-    path: '**',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
-  }
+    path: "**",
+    redirectTo: "/dashboard",
+    pathMatch: "full",
+  },
   // {
   //   path: '',
   //   component: LayoutComponent,
