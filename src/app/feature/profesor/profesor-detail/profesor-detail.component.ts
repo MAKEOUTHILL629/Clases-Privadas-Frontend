@@ -12,6 +12,7 @@ export class ProfesorDetailComponent implements OnInit {
   profesorActual: Profesor;
   constructor(private route: ActivatedRoute) {
     this.id = +this.route.snapshot.params.id;
+    //cargar el profesor
   }
 
   ngOnInit(): void {}
