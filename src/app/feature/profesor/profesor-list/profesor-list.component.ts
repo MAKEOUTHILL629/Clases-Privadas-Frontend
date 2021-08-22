@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfesorService } from '../../../data/services/api/profesor.service';
+import { Observable } from 'rxjs';
 import { Profesor } from '../../../data/interfaces/profesor.metada';
 
 @Component({
@@ -7,29 +9,14 @@ import { Profesor } from '../../../data/interfaces/profesor.metada';
   styleUrls: ['./profesor-list.component.css']
 })
 export class ProfesorListComponent implements OnInit {
-  public profesores: Profesor[] = [
-    {
-      id: 1,
-      nombres : "Prueba 1",
-      apellidos : "Prueba 1",
-      profesion : "Programador 1",
-    },
-    {
-      id: 2,
-      nombres : "Prueba 2",
-      apellidos : "Prueba 2",
-      profesion : "Programador 2",
-    },
-    {
-      id: 3,
-      nombres : "Prueba 3",
-      apellidos : "Prueba 3",
-      profesion : "Programador 3",
-    },
-  ]
-  constructor() { }
+
+
+  public listarProfesores: Observable<Profesor[]>;
+  constructor(protected productoService: ProfesorService) { }
 
   ngOnInit(): void {
+    this.listarProfesores = this.productoService.consultar();
+    console.log(this.listarProfesores)
   }
 
 }

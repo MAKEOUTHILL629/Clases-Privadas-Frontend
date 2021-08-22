@@ -1,9 +1,7 @@
 <h2>Profesor Detalle</h2>
-{{ id }}
-
 <div class="card w-75 mx-auto" >
   <div class="card-body">
-    <h5 class="card-title">{{ profesorActual.nombres + " " + profesorActual.apellidos }}</h5>
+    <h5 class="card-title">{{ profesorActual.persona.nombres + " " + profesorActual.persona.apellidos }}</h5>
     <p class="card-text">{{ profesorActual.profesion }}</p>
   </div>
   <ul class="list-group list-group-flush">

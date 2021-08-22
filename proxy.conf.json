@@ -1,6 +1,6 @@
 {
-  "/prospectos-vida": {
-    "target": "http://localhost:4200/",
+  "/Clases": {
+    "target": "http://localhost:8080/",
     "logLevel": "debug"
   }
 

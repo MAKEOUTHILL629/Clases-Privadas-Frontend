@@ -8,6 +8,21 @@
       "@core/*": [
         "src/app/core/*"
       ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@components/*": [
+        "src/app/shared/*"
+      ],
+      "@feature/*":[
+        "src/app/feature/*"
+      ],
+      "@data/*":[
+        "src/app/data/*"
+      ],
+      "@layout/*":[
+        "src/app/layout/*"
+      ],
       "@core-service/*": [
         "src/app/core/services/*"
       ],
@@ -17,9 +32,6 @@
       "@producto/*": [
         "src/app/feature/producto/*"
       ],
-      "@shared/*": [
-        "src/app/shared/*"
-      ]
     }
   },
   "files": [
