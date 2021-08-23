@@ -1,1 +1,37 @@
-<p>estudiante-detail works!</p>
+<h2 class="text-center fs-2 fw-bolder">Estudiante Detalle</h2>
+<div class="card   w-50 mx-auto py-4" >
+  <div class="row g-0 justify-content-around align-items-center">
+
+    <div class="col-md-5">
+
+      <div class="card-body">
+        <h5 class="card-title">{{ estudianteActual.persona.nombres + " " + estudianteActual.persona.apellidos }}</h5>
+        <p class="card-text">{{ estudianteActual.nivelEstudios }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 mx-1 ">
+      <table class="table table-striped shadow  rounded">
+        <thead>
+          <tr>
+            <th scope="col">Nombre Profesor</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clase of clasesEstudianteCompletas">
+            <th scope="row">{{ clase.profesor.nombres }}</th>
+            <td>{{ clase.fecha }}</td>
+            <td>{{ clase.valor }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+
+
+  </div>
+</div>
+

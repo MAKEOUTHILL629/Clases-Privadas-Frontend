@@ -1,0 +1,16 @@
+<form [formGroup]="temaForm" (ngSubmit)="guardarTema()">
+
+  <div class="input-group mb-1 ">
+    <input [class.is-invalid]="temaForm.get('tema').touched && temaForm.get('tema').invalid"
+      type="text"
+      class="form-control"
+      placeholder="Calculo Diferencial"
+      aria-label="Agregar un tema"
+      aria-describedby="button-addon"
+      formControlName="tema"
+    />
+    <button class="btn btn-dark" type="submit" id="button-addon">
+      Agregar
+    </button>
+  </div>
+</form>

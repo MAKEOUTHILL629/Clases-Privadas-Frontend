@@ -1,4 +1,4 @@
-<div class="card h-100 bg-dark border-light shadow-lg pe-auto text-light" *ngIf="estudianteData" routerLink="/dashboard/estudiante/{{estudianteData.id}}"  >
+<div class="card h-100 bg-dark border-light shadow-lg pe-auto text-light" role="button" *ngIf="estudianteData" routerLink="/dashboard/estudiante/{{estudianteData.id}}"  >
   <div class="card-body">
     <h5 class="card-title ">{{ estudianteData.persona.nombres + " " + estudianteData.persona.apellidos }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ estudianteData.nivelEstudios }}</h6>

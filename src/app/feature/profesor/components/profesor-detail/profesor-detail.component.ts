@@ -29,7 +29,6 @@ export class ProfesorDetailComponent implements OnInit {
     protected temaService: TemaService,
     protected horarioService: HorarioService) {
     this.id = +this.route.snapshot.params.id;
-    //cargar el profesor
     this.productoService.consultarEspecifico(this.id).subscribe(profesor => this.profesorActual = profesor);
     this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
     this.horariosProfesorActual = this.horarioService.consultarEspecifico(this.id);
