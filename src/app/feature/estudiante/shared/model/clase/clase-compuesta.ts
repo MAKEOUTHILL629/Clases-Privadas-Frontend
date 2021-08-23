@@ -3,8 +3,8 @@ import { Estudiante } from "../estudiante";
 
 export interface ClaseCompleta{
   id: number;
-  estudiante: Estudiante;
-  profesor: Profesor;
+  estudianteDTO: Estudiante;
+  profesorDTO: Profesor;
   fecha: string;
   valor: number;
 }

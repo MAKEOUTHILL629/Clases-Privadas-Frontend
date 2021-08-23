@@ -8,31 +8,43 @@ import { Observable } from "rxjs";
 import { HorarioService } from "@feature/profesor/shared/service/horario/horario.service";
 import { Horario } from "@feature/profesor/shared/model/horario/horario";
 
-
 @Component({
   selector: "app-profesor-detail",
   templateUrl: "./profesor-detail.component.html",
   styleUrls: ["./profesor-detail.component.css"],
 })
 export class ProfesorDetailComponent implements OnInit {
-
   id: number;
 
   profesorActual: Profesor;
 
   temasProfesorActual: Observable<Tema[]>;
-  horariosProfesorActual: Observable<Horario[]>
+  horariosProfesorActual: Observable<Horario[]>;
 
   constructor(
     private route: ActivatedRoute,
-    protected productoService: ProfesorService,
+    protected profesorService: ProfesorService,
     protected temaService: TemaService,
-    protected horarioService: HorarioService) {
+    protected horarioService: HorarioService
+  ) {
     this.id = +this.route.snapshot.params.id;
-    this.productoService.consultarEspecifico(this.id).subscribe(profesor => this.profesorActual = profesor);
+
+    let variableTemporal = this.profesorService
+      .consultarEspecifico(this.id)
+      .subscribe(async (profesor) => (this.profesorActual = await profesor));
+    console.log(variableTemporal);
+
     this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
-    this.horariosProfesorActual = this.horarioService.consultarEspecifico(this.id);
+    this.horariosProfesorActual = this.horarioService.consultarEspecifico(
+      this.id
+    );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    if(this.profesorActual !== undefined){
+
+    }
+
+  }
 }

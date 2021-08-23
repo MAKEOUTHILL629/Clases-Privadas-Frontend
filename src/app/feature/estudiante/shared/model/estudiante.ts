@@ -2,6 +2,6 @@ import { NivelEstudios } from "@feature/estudiante/shared/model/nivel-estudios.e
 
 export interface Estudiante{
   id: number;
-  persona; Persona;
+  persona?; Persona;
   nivelEstudios: NivelEstudios;
 }

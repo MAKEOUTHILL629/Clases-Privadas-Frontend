@@ -1,0 +1,29 @@
+<form [formGroup]="formClase" (ngSubmit)="guardarClase()">
+  <div class="row">
+    <select name="" id="" class="form-select mb-2" formControlName="profesor">
+      <option
+        *ngFor="let profesor of profesores | async"
+        [ngValue]="profesor.id"
+        [(ngModel)]="idProfesor"
+      >
+        {{ profesor.persona.nombres }}
+      </option>
+    </select>
+    {{ idProfesor }}
+    <select
+      name=""
+      id=""
+      class="form-select mb-2"
+      formControlName="horarioProfesor"
+    >
+      <option
+        value=""
+        *ngFor="let horario of horariosProfesor | async"
+        value="{{ horario.id }}"
+      >
+        {{ horario.diaSemana + " " + horario.hora }}
+      </option>
+    </select>
+    <button class="btn btn-primary">Agendar Clase</button>
+  </div>
+</form>
