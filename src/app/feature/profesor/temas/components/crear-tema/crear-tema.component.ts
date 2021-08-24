@@ -28,7 +28,6 @@ export class CrearTemaComponent implements OnInit {
       idProfesor: this.id,
       tema: this.temaForm.get('tema').value,
     }
-    console.log(temaSalida);
     this.temaService.guardar(temaSalida).subscribe(data => console.log(data));
   }
 

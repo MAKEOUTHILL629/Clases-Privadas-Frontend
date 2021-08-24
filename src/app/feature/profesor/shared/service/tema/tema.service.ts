@@ -20,7 +20,7 @@ export class TemaService {
   }
 
   public guardar(tema: TemaSalida){
-    return this.http.doPost<TemaSalida, number>(`${environment.endpoint}/temas`, tema,
+    return this.http.doPost<TemaSalida, boolean>(`${environment.endpoint}/temas`, tema,
                                                 this.http.optsName('Crear tema profesor'));
 
   }

@@ -21,7 +21,7 @@ export class HorarioService {
 
 
   public guardar(horario: HorarioSalida){
-    return this.http.doPost<HorarioSalida, number>(`${environment.endpoint}/horarios`, horario,
+    return this.http.doPost<HorarioSalida, boolean>(`${environment.endpoint}/horarios`, horario,
                                                 this.http.optsName('Crear horario profesor'));
 
   }

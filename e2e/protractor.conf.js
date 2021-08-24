@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
@@ -14,10 +14,16 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'chromeOptions':{
+      args:[
+        "--headless",
+        "--disable-gpu"
+      ]
+    }
   },
   directConnect: true,
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

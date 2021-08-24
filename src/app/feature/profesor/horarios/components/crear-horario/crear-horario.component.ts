@@ -29,7 +29,6 @@ export class CrearHorarioComponent implements OnInit {
 
     }
     this.horarioService.guardar(horarioGuardar).subscribe(data => console.log(data));
-    console.log(this.horarioForm.value)
 
   }
 
