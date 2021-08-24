@@ -17,7 +17,7 @@ export class CrearHorarioComponent implements OnInit {
   constructor(protected horarioService: HorarioService) { }
 
   ngOnInit(): void {
-    this.construirFormularioProducto();
+    this.construirFormularioHorario();
   }
 
 
@@ -33,7 +33,7 @@ export class CrearHorarioComponent implements OnInit {
 
   }
 
-  private construirFormularioProducto() {
+  private construirFormularioHorario() {
     this.horarioForm =  new FormGroup({
       diaSemana: new FormControl('', [Validators.required]),
       hora: new FormControl('', [Validators.required])

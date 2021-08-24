@@ -29,22 +29,16 @@ export class ProfesorDetailComponent implements OnInit {
   ) {
     this.id = +this.route.snapshot.params.id;
 
-    let variableTemporal = this.profesorService
+    this.profesorService
       .consultarEspecifico(this.id)
-      .subscribe(async (profesor) => (this.profesorActual = await profesor));
-    console.log(variableTemporal);
-
+      .subscribe(
+        async (profesor: Profesor) => (this.profesorActual = await profesor)
+      );
     this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
     this.horariosProfesorActual = this.horarioService.consultarEspecifico(
       this.id
     );
   }
 
-  ngOnInit(): void {
-
-    if(this.profesorActual !== undefined){
-
-    }
-
-  }
+  ngOnInit(): void {}
 }

@@ -20,7 +20,7 @@ export class CrearTemaComponent implements OnInit {
   constructor(protected temaService : TemaService) { }
 
   ngOnInit(): void {
-    this.construirFormularioProducto();
+    this.construirFormularioTema();
   }
 
   guardarTema(){
@@ -32,7 +32,7 @@ export class CrearTemaComponent implements OnInit {
     this.temaService.guardar(temaSalida).subscribe(data => console.log(data));
   }
 
-  private construirFormularioProducto() {
+  private construirFormularioTema() {
     this.temaForm = new FormGroup({
       tema: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])

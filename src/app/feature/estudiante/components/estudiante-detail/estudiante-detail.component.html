@@ -4,7 +4,7 @@
 
     <div class="col-md-3">
 
-      <div class="card-body">
+      <div class="card-body" *ngIf="estudianteActual">
         <h5 class="card-title">{{ estudianteActual.persona.nombres + " " + estudianteActual.persona.apellidos }}</h5>
         <p class="card-text">{{ estudianteActual.nivelEstudios }}</p>
       </div>
@@ -28,7 +28,7 @@
         </tbody>
       </table>
 
-      <app-crear-clase></app-crear-clase>
+      <app-crear-clase *ngIf="estudianteActual" [idEstudiante]="estudianteActual.id" ></app-crear-clase>
 
     </div>
 
