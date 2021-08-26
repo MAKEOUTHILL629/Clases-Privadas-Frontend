@@ -4,9 +4,7 @@ import { Tema } from '../../model/tema/tema';
 import { environment } from 'src/environments/environment.dev';
 import { TemaSalida } from '../../model/tema/tema-salida';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TemaService {
 
   constructor(protected http: HttpService) { }

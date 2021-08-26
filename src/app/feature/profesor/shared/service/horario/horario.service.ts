@@ -5,9 +5,7 @@ import { environment } from 'src/environments/environment.dev';
 import { HorarioSalida } from '../../model/horario/horario-salida';
 
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class HorarioService {
 
 
