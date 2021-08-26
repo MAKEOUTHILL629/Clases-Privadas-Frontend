@@ -22,7 +22,14 @@ export class TemaService {
   public guardar(tema: TemaSalida){
     return this.http.doPost<TemaSalida, boolean>(`${environment.endpoint}/temas`, tema,
                                                 this.http.optsName('Crear tema profesor'));
+  }
 
+  public actualizar(temaActualizar: TemaSalida, idTema: number){
+    return this.http.doPost(`${environment.endpoint}/temas/${idTema}`, temaActualizar, this.http.optsName('Actualizar un tema'))
+  }
+
+  public eliminar(idTema: number){
+    return this.http.doDelete<boolean>(`${environment.endpoint}/temas/${idTema}`,  this.http.optsName('eliminar temas'));
   }
 
 }

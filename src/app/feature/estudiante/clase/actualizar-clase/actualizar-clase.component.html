@@ -1,0 +1,65 @@
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-bs-toggle="modal"
+  [attr.data-bs-target]="'#' + 'clase' + claseActualizar.id"
+>
+  Actualizar Clase
+</button>
+<div
+  class="modal fade"
+  [id]="'clase' + claseActualizar.id"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar clase</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form [formGroup]="formActualizarClase" (ngSubmit)="actualizarClase()">
+        <div class="modal-body">
+          <select
+            name=""
+            id=""
+            class="form-select mb-2"
+            formControlName="profesorActualizar"
+          >
+            <option
+              *ngFor="let profesor of profesores | async"
+              value="{{ profesor.id }}"
+            >
+              {{ profesor.persona.nombres }}
+            </option>
+          </select>
+          <input
+            class="mb-2 form-control"
+            type="datetime-local"
+            min="{{ dia() }}"
+            formControlName="horaActualizar"
+            required
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+            Actualizar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

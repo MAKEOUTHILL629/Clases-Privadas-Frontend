@@ -1,4 +1,4 @@
-import { DiasSemana } from "@core/modelo/dias-semana.enum";
+import { DiasSemana } from '@core/modelo/dias-semana.enum';
 
 export interface Horario{
   id: number;

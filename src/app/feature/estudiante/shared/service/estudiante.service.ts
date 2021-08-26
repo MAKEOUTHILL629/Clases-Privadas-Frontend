@@ -10,12 +10,13 @@ export class EstudianteService {
 
   constructor(protected http: HttpService) { }
 
-  public consultar(){
+  public consultar() {
     return this.http.doGet<Estudiante[]>(`${environment.endpoint}/estudiantes`, this.http.optsName('Listar estudiantes'));
   }
 
-  public consultarEspecifico( id : number){
-    return this.http.doGet<Estudiante>(`${environment.endpoint}/estudiantes/${id}`, this.http.optsName('Obtener un estudiante en especifico'));
+  public consultarEspecifico(id: number) {
+    return this.http.doGet<Estudiante>(`${environment.endpoint}/estudiantes/${id}`,
+                                       this.http.optsName('Obtener un estudiante en especifico'));
   }
 
 }

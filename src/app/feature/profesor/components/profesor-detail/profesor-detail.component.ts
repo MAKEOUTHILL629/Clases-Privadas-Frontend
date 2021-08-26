@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { ProfesorService } from "../../shared/service/profesor.service";
-import { Profesor } from "../../shared/model/profesor";
-import { TemaService } from "@feature/profesor/shared/service/tema/tema.service";
-import { Tema } from "@feature/profesor/shared/model/tema/tema";
-import { Observable } from "rxjs";
-import { HorarioService } from "@feature/profesor/shared/service/horario/horario.service";
-import { Horario } from "@feature/profesor/shared/model/horario/horario";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProfesorService } from '../../shared/service/profesor.service';
+import { Profesor } from '../../shared/model/profesor';
+import { TemaService } from '@feature/profesor/shared/service/tema/tema.service';
+import { Tema } from '@feature/profesor/shared/model/tema/tema';
+import { Observable, Subscription } from 'rxjs';
+import { HorarioService } from '@feature/profesor/shared/service/horario/horario.service';
+import { Horario } from '@feature/profesor/shared/model/horario/horario';
 
 @Component({
-  selector: "app-profesor-detail",
-  templateUrl: "./profesor-detail.component.html",
-  styleUrls: ["./profesor-detail.component.css"],
+  selector: 'app-profesor-detail',
+  templateUrl: './profesor-detail.component.html',
+  styleUrls: ['./profesor-detail.component.css'],
 })
 export class ProfesorDetailComponent implements OnInit {
   id: number;
@@ -20,7 +20,7 @@ export class ProfesorDetailComponent implements OnInit {
 
   temasProfesorActual: Observable<Tema[]>;
   horariosProfesorActual: Observable<Horario[]>;
-
+  subscription: Subscription;
   constructor(
     private route: ActivatedRoute,
     protected profesorService: ProfesorService,
@@ -34,11 +34,20 @@ export class ProfesorDetailComponent implements OnInit {
       .subscribe(
         async (profesor: Profesor) => (this.profesorActual = await profesor)
       );
+  }
+
+  ngOnInit(): void {
+    this.cargarHorarios();
+    this.cargarTemas();
+  }
+
+  cargarTemas(): void {
     this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
+  }
+
+  cargarHorarios(): void {
     this.horariosProfesorActual = this.horarioService.consultarEspecifico(
       this.id
     );
   }
-
-  ngOnInit(): void {}
 }

@@ -10,7 +10,7 @@
       </div>
       <ul class="list-group list-group-flush text-center ">
         <li class="list-group-item" *ngFor="let temaProfesor of temasProfesorActual | async">{{ temaProfesor.tema }}</li>
-        <app-crear-tema  [id]="id"></app-crear-tema>
+        <app-crear-tema  [id]="id"  (seCreoTema)="cargarTemas()"></app-crear-tema>
       </ul>
     </div>
 
@@ -30,7 +30,7 @@
         </tbody>
       </table>
 
-      <app-crear-horario [id]="id"></app-crear-horario>
+      <app-crear-horario [id]="id" (seCreoHorario)="cargarHorarios()"></app-crear-horario>
     </div>
 
 
