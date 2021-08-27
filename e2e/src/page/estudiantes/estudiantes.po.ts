@@ -11,7 +11,7 @@ export class EstudiantePage {
   private botonConfirmarEliminarClase = element(by.xpath('/html/body/app-root/app-skeleton/app-estudiante-detail/div/div/div[2]/table/tbody/tr[1]/td[4]/app-eliminar-clase/div/div/div/div[3]/button[2]'));
   private botonActualizarClase = element(by.css('body > app-root > app-skeleton > app-estudiante-detail > div > div > div.col-md-8.mx-1 > table > tbody > tr > td:nth-child(4) > app-actualizar-clase > button'));
   private inputProfesorActualizar = element(by.xpath('/html/body/app-root/app-skeleton/app-estudiante-detail/div/div/div[2]/table/tbody/tr/td[3]/app-actualizar-clase/div/div/div/form/div[1]/select'));
-  private opcionDosProfesorActualizar = element(by.xpath('//*[@id="clase33"]/div/div/form/div[1]/select/option[2]'));
+  private opcionDosProfesorActualizar = element(by.xpath('/html/body/app-root/app-skeleton/app-estudiante-detail/div/div/div[2]/table/tbody/tr/td[3]/app-actualizar-clase/div/div/div/form/div[1]/select/option[2]'));
   private inputFechaActualizar = element(by.xpath('/html/body/app-root/app-skeleton/app-estudiante-detail/div/div/div[2]/table/tbody/tr/td[3]/app-actualizar-clase/div/div/div/form/div[1]/input'));
   private botonActualizarConfirmar = element(by.xpath('/html/body/app-root/app-skeleton/app-estudiante-detail/div/div/div[2]/table/tbody/tr/td[3]/app-actualizar-clase/div/div/div/form/div[2]/button[2]'));
 

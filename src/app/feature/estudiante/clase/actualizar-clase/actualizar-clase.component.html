@@ -55,7 +55,7 @@
           >
             Close
           </button>
-          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+          <button  [disabled]="formActualizarClase.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">
             Actualizar
           </button>
         </div>

@@ -63,7 +63,6 @@ describe('workspace-project Estudiante', () => {
     browser.wait(EC.visibilityOf(estudiante.getBotonConfirmarEliminarClase()), 1000, ' Deberia aparecer');
     estudiante.clickConfirmarEliminarClase();
 
-
     expect(estudiante.contarClases()).toBeLessThan(CANTIDAD_CLASES);
   });
 

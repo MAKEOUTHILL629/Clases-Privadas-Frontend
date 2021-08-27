@@ -10,6 +10,7 @@ import { HorarioService } from './shared/service/horario/horario.service';
 import { ProfesorService } from './shared/service/profesor.service';
 import { TemaService } from './shared/service/tema/tema.service';
 import { CrearTemaComponent } from './temas/components/crear-tema/crear-tema.component';
+import { EliminarTemaComponent } from './temas/components/eliminar-tema/eliminar-tema.component';
 
 
 
@@ -20,7 +21,8 @@ import { CrearTemaComponent } from './temas/components/crear-tema/crear-tema.com
     ProfesorDetailComponent,
     ProfesorListComponent,
     CrearTemaComponent,
-    CrearHorarioComponent
+    CrearHorarioComponent,
+    EliminarTemaComponent
   ],
   imports: [
     SharedModule,
