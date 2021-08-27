@@ -9,6 +9,9 @@ import { ActualizarClaseComponent } from './clase/actualizar-clase/actualizar-cl
 import { EliminarClaseComponent } from './clase/eliminar-clase/eliminar-clase.component';
 import { EstudianteService } from './shared/service/estudiante.service';
 import { ClaseService } from './shared/service/clase/clase.service';
+import { ProfesorService } from '@feature/profesor/shared/service/profesor.service';
+import { HorarioService } from '@feature/profesor/shared/service/horario/horario.service';
+
 
 
 @NgModule({
@@ -23,6 +26,6 @@ import { ClaseService } from './shared/service/clase/clase.service';
     SharedModule,
     EstudianteRoutingModule
   ],
-  providers: [EstudianteService, ClaseService]
+  providers: [EstudianteService, ClaseService, ProfesorService, HorarioService]
 })
 export class EstudianteModule { }

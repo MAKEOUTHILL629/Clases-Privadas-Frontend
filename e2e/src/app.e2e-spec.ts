@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Lista de profesores');
+    expect(page.getTitleText()).toEqual('PRIV CLASES');
   });
 
   afterEach(async () => {

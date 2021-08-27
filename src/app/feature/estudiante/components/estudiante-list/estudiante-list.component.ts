@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class EstudianteListComponent implements OnInit {
 
-  public listaEstudiantes : Observable<Estudiante[]>
+  public listaEstudiantes: Observable<Estudiante[]>;
 
   constructor(protected estudianteService: EstudianteService) { }
 

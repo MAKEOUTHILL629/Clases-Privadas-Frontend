@@ -53,6 +53,7 @@ export class CrearClaseComponent implements OnInit {
   }
 
   guardarClase() {
+    console.log(this.formClase.get('horaCita').value);
     const claseGuardar: ClaseSalida = {
       idEstudiante: this.idEstudiante,
       idProfesor: this.idProfesor,

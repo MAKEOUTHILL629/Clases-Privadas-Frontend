@@ -1,15 +1,15 @@
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterTestingModule } from "@angular/router/testing";
-import { HttpService } from "@core/services/http.service";
-import { TemaService } from "@feature/profesor/shared/service/tema/tema.service";
-import { of } from "rxjs";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpService } from '@core/services/http.service';
+import { TemaService } from '@feature/profesor/shared/service/tema/tema.service';
+import { of } from 'rxjs';
 
-import { CrearTemaComponent } from "./crear-tema.component";
+import { CrearTemaComponent } from './crear-tema.component';
 
-describe("CrearTemaComponent", () => {
+describe('CrearTemaComponent', () => {
   let component: CrearTemaComponent;
   let fixture: ComponentFixture<CrearTemaComponent>;
   let temaService: TemaService;
@@ -34,11 +34,11 @@ describe("CrearTemaComponent", () => {
     fixture = TestBed.createComponent(CrearTemaComponent);
     component = fixture.componentInstance;
     temaService = TestBed.inject(TemaService);
-    spyOn(temaService, "guardar").and.returnValue(of(true));
+    spyOn(temaService, 'guardar').and.returnValue(of(true));
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 

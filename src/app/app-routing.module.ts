@@ -1,76 +1,55 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-//import { features } from 'process';
-//import { LayoutComponent } from '@core/components/layout/layout.component';
-//import { SecurityGuard } from '@core/guard/security.guard';
-import { SkeletonComponent } from "@layout/skeleton/skeleton.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "/dashboard/profesor",
-    pathMatch: "full",
+    path: '',
+    redirectTo: '/dashboard/profesor',
+    pathMatch: 'full',
   },
   {
-    path: "dashboard",
+    path: 'dashboard',
     component: SkeletonComponent,
     children: [
       {
-        path: "profesor",
+        path: 'profesor',
         loadChildren: () =>
-          import("@feature/profesor/profesor.module").then(
+          import('@feature/profesor/profesor.module').then(
             (m) => m.ProfesorModule
           ),
       },
       {
-        path: "estudiante",
+        path: 'estudiante',
         loadChildren: () =>
-          import("@feature/estudiante/estudiante.module").then(
+          import('@feature/estudiante/estudiante.module').then(
             (m) => m.EstudianteModule
           ),
       },
       {
-        path: "**",
-        redirectTo: "/dashboard/profesor",
-        pathMatch: "full",
+        path: '**',
+        redirectTo: '/dashboard/profesor',
+        pathMatch: 'full',
       },
     ],
   },
   {
-    path: "estudiante",
+    path: 'estudiante',
     loadChildren: () =>
-      import("@feature/estudiante/estudiante.module").then(
+      import('@feature/estudiante/estudiante.module').then(
         (m) => m.EstudianteModule
       ),
   },
 
   {
-    path: "**",
-    redirectTo: "/dashboard",
-    pathMatch: "full",
+    path: '**',
+    redirectTo: '/dashboard',
+    pathMatch: 'full',
   },
-  // {
-  //   path: '',
-  //   component: LayoutComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       redirectTo: '/home',
-  //       pathMatch: 'full',
-  //     },
-  //     {
-  //       path: 'home',
-  //       loadChildren: ()=> import('./feature/home/home.module').then(m => m.HomeModule),
-  //       canActivate: [SecurityGuard]
-  //     },
-  //   ]
-  // },
-
-  // { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" })],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

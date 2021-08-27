@@ -9,8 +9,8 @@ import { HorarioSalida } from '../../model/horario/horario-salida';
 export class HorarioService {
 
 
-  constructor(protected http: HttpService) {}
-  get refresh$(){
+  constructor(protected http: HttpService) { }
+  get refresh$() {
     return this.refresh$;
   }
 

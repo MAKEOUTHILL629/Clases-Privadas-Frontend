@@ -19,11 +19,12 @@
     <input
       class="mb-2 form-control"
       type="datetime-local"
+      id="fecha-crear"
       min="{{ dia() }}"
       formControlName="horaCita"
       required
     />
 
-    <button class="btn btn-primary">Agendar Clase</button>
+    <button [disabled]="formClase.invalid" class="btn btn-primary" id="crear-clase">Agendar Clase</button>
   </div>
 </form>

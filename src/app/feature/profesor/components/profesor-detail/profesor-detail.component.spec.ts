@@ -11,11 +11,11 @@ describe('ProfesorDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfesorDetailComponent ],
+      declarations: [ProfesorDetailComponent],
       imports: [RouterTestingModule, HttpClientTestingModule],
       providers: [HttpService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

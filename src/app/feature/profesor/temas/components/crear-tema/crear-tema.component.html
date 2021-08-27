@@ -10,7 +10,7 @@
       formControlName="tema"
       required="true"
     />
-    <button class="btn btn-dark" type="submit" id="button-addon">
+    <button  [disabled]="temaForm.invalid" class="btn btn-dark" type="submit" id="button-addon">
       Agregar
     </button>
   </div>

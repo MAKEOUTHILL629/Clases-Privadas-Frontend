@@ -20,7 +20,7 @@ export class CrearTemaComponent implements OnInit {
   @Output()
   seCreoTema: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(protected temaService: TemaService) {}
+  constructor(protected temaService: TemaService) { }
 
   ngOnInit(): void {
     this.construirFormularioTema();

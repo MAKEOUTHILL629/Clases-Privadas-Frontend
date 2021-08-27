@@ -8,10 +8,10 @@ import { MenuItem } from '@core/modelo/menu-item';
 })
 export class NavigationComponent implements OnInit {
 
-  items : MenuItem[] = [
-    {url: '/dashboard/profesor', nombre: 'Profesores'},
-    {url: '/dashboard/estudiante', nombre: 'Estudiantes'}
-  ]
+  items: MenuItem[] = [
+    { url: '/dashboard/profesor', nombre: 'Profesores' },
+    { url: '/dashboard/estudiante', nombre: 'Estudiantes' }
+  ];
   constructor() { }
 
   ngOnInit(): void {

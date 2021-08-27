@@ -8,11 +8,11 @@ export class ProfesorService {
 
   constructor(protected http: HttpService) { }
 
-  public consultar(){
+  public consultar() {
     return this.http.doGet<Profesor[]>(`${environment.endpoint}/profesores`, this.http.optsName('Listar profesores'));
   }
 
-  public consultarEspecifico( id : number){
+  public consultarEspecifico(id: number) {
     return this.http.doGet<Profesor>(`${environment.endpoint}/profesores/${id}`, this.http.optsName('obtine un profesor en especifico'));
   }
 

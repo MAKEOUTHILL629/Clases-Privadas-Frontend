@@ -13,7 +13,7 @@ export class TemaService {
     return this.http.doGet<Tema[]>(`${environment.endpoint}/temas-profesor`, this.http.optsName('Listar temas'));
   }
 
-  public consultarEspecifico( id : number){
+  public consultarEspecifico( id: number){
     return this.http.doGet<Tema[]>(`${environment.endpoint}/temas-profesor/${id}`, this.http.optsName('Listar temas de un profesor'));
   }
 
@@ -23,7 +23,7 @@ export class TemaService {
   }
 
   public actualizar(temaActualizar: TemaSalida, idTema: number){
-    return this.http.doPost(`${environment.endpoint}/temas/${idTema}`, temaActualizar, this.http.optsName('Actualizar un tema'))
+    return this.http.doPost(`${environment.endpoint}/temas/${idTema}`, temaActualizar, this.http.optsName('Actualizar un tema'));
   }
 
   public eliminar(idTema: number){

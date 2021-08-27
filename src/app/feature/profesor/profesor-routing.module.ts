@@ -1,15 +1,15 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { ProfesorDetailComponent } from "./components/profesor-detail/profesor-detail.component";
-import { ProfesorListComponent } from "./components/profesor-list/profesor-list.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ProfesorDetailComponent } from './components/profesor-detail/profesor-detail.component';
+import { ProfesorListComponent } from './components/profesor-list/profesor-list.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: ProfesorListComponent,
   },
   {
-    path: ":id",
+    path: ':id',
     component: ProfesorDetailComponent,
   },
 ];
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ProfesorRoutingModule {}
+export class ProfesorRoutingModule { }
