@@ -16,7 +16,6 @@ import { Observable } from 'rxjs';
 })
 export class EstudianteDetailComponent implements OnInit {
   id: number;
-
   estudianteActual: Estudiante;
   clasesEstudiante: Observable<ClaseCompleta[]>;
 

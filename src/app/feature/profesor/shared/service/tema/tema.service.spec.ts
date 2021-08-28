@@ -57,7 +57,7 @@ describe('TemaService', () => {
     });
 
     const req = httpMock.expectOne(`${apiEndPointTemas}/${dummyTema.id}`);
-    expect(req.request.method).toBe('POST');
+    expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({ body: true }));
   });
 

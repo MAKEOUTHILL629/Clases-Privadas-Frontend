@@ -11,6 +11,9 @@ import { ProfesorService } from './shared/service/profesor.service';
 import { TemaService } from './shared/service/tema/tema.service';
 import { CrearTemaComponent } from './temas/components/crear-tema/crear-tema.component';
 import { EliminarTemaComponent } from './temas/components/eliminar-tema/eliminar-tema.component';
+import { ActualizarTemaComponent } from './temas/components/actualizar-tema/actualizar-tema.component';
+import { EliminarHorarioComponent } from './horarios/components/eliminar-horario/eliminar-horario.component';
+import { ActualizarHorarioComponent } from './horarios/components/actualizar-horario/actualizar-horario.component';
 
 
 
@@ -22,7 +25,10 @@ import { EliminarTemaComponent } from './temas/components/eliminar-tema/eliminar
     ProfesorListComponent,
     CrearTemaComponent,
     CrearHorarioComponent,
-    EliminarTemaComponent
+    EliminarTemaComponent,
+    ActualizarTemaComponent,
+    EliminarHorarioComponent,
+    ActualizarHorarioComponent
   ],
   imports: [
     SharedModule,

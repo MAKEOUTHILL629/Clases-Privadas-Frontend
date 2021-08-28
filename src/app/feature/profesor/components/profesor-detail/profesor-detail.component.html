@@ -1,38 +1,60 @@
 <h2 class="text-center fs-2 fw-bolder">Profesor Detalle</h2>
-<div class="card   w-75 mx-auto py-4" >
+<div class="card w-75 mx-auto py-4">
   <div class="row g-0 justify-content-around align-items-center">
-
     <div class="col-md-5" *ngIf="profesorActual">
-
       <div class="card-body">
-        <h5 class="card-title">{{ profesorActual.persona.nombres + " " + profesorActual.persona.apellidos }}</h5>
+        <h5 class="card-title">
+          {{
+            profesorActual.persona.nombres +
+              " " +
+              profesorActual.persona.apellidos
+          }}
+        </h5>
         <p class="card-text">{{ profesorActual.profesion }}</p>
       </div>
-      <ul class="list-group list-group-flush text-center ">
-        <li class="list-group-item" *ngFor="let temaProfesor of temasProfesorActual | async">{{ temaProfesor.tema }}</li>
-        <app-crear-tema  [id]="id"  (seCreoTema)="cargarTemas()"></app-crear-tema>
+      <ul class="list-group list-group-flush text-center">
+        <li
+          class="list-group-item"
+          *ngFor="let temaProfesor of temasProfesorActual | async"
+        >
+
+            {{ temaProfesor.tema }}
+          <app-actualizar-tema [idTemaActualizar]="temaProfesor.id" [idProfesor]="temaProfesor.idProfesor" (seActualizo)="cargarTemas()"></app-actualizar-tema>
+          <app-eliminar-tema
+            [idTemaEliminar]="temaProfesor.id"
+            (seElimino)="cargarTemas()"
+          ></app-eliminar-tema>
+
+
+        </li>
+        <app-crear-tema [id]="id" (seCreoTema)="cargarTemas()"></app-crear-tema>
       </ul>
     </div>
 
-    <div class="col-md-5 mx-1 ">
-      <table class="table table-striped shadow  rounded">
+    <div class="col-md-5 mx-1">
+      <table class="table table-striped shadow rounded">
         <thead>
           <tr>
             <th scope="col">Dia</th>
             <th scope="col">Hora</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let horario of horariosProfesorActual |async">
-            <th scope="row">{{horario.diaSemana}}</th>
+          <tr *ngFor="let horario of horariosProfesorActual | async">
+            <th scope="row">{{ horario.diaSemana }}</th>
             <td>{{ horario.hora }}</td>
+            <td><app-eliminar-horario [idHorario]="horario.id" (seElimino)="cargarHorarios()"></app-eliminar-horario></td>
+            <td><app-actualizar-horario [idHorario]="horario.id" [idProfesor]="profesorActual.id"  (seActualizo)="cargarHorarios()"></app-actualizar-horario></td>
           </tr>
         </tbody>
       </table>
 
-      <app-crear-horario [id]="id" (seCreoHorario)="cargarHorarios()"></app-crear-horario>
+      <app-crear-horario
+        [id]="id"
+        (seCreoHorario)="cargarHorarios()"
+      ></app-crear-horario>
     </div>
-
-
   </div>
 </div>

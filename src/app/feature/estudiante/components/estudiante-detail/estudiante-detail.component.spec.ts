@@ -1,12 +1,14 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { ClaseCompleta } from '@feature/estudiante/shared/model/clase/clase-compuesta';
-import { NivelEstudios } from '@feature/estudiante/shared/model/nivel-estudios.enum';
+import { Estudiante } from '@feature/estudiante/shared/model/estudiante';
 import { ClaseService } from '@feature/estudiante/shared/service/clase/clase.service';
 import { EstudianteService } from '@feature/estudiante/shared/service/estudiante.service';
 import { ProfesorService } from '@feature/profesor/shared/service/profesor.service';
+import { clases, estudiante } from '@shared/mocks/mock-estudiante';
 import { of } from 'rxjs';
 
 import { EstudianteDetailComponent } from './estudiante-detail.component';
@@ -15,66 +17,21 @@ describe('EstudianteDetailComponent', () => {
   let component: EstudianteDetailComponent;
   let fixture: ComponentFixture<EstudianteDetailComponent>;
   let claseService: ClaseService;
-  const clases: ClaseCompleta[] = [
-    {
-      estudianteDTO: {
-        id: 1,
-        nivelEstudios: NivelEstudios.UNIVERSIDAD,
-        persona: {
-          apellidos: 'string',
-          cedula: 'string',
-          id: 1,
-          nombres: 'string'
-        }
-      },
-      fecha: '2021-08-25T17:05:04.841Z',
-      id: 2,
-      profesorDTO: {
-        id: 2,
-        persona: {
-          apellidos: 'string',
-          cedula: 'string',
-          id: 1,
-          nombres: 'string'
-        },
-        profesion: 'string'
-      },
-      valor: 1213
-    },
-
-    {
-      estudianteDTO: {
-        id: 2,
-        nivelEstudios: NivelEstudios.UNIVERSIDAD,
-        persona: {
-          apellidos: 'string',
-          cedula: 'string',
-          id: 2,
-          nombres: 'string'
-        }
-      },
-      fecha: '2021-08-25T17:05:04.841Z',
-      id: 3,
-      profesorDTO: {
-        id: 2,
-        persona: {
-          apellidos: 'string',
-          cedula: 'string',
-          id: 2,
-          nombres: 'string'
-        },
-        profesion: 'string'
-      },
-      valor: 12321
-    },
-
-  ];
+  let estudianteService: EstudianteService;
+  const estudianteTest: Estudiante = estudiante;
+  const clasesTest: ClaseCompleta[] = clases;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ EstudianteDetailComponent ],
-      imports: [RouterTestingModule, HttpClientTestingModule, RouterTestingModule],
-      providers: [HttpService, ClaseService, ProfesorService, EstudianteService]
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      providers: [HttpService, ClaseService, ProfesorService, EstudianteService,
+        {
+        provide: ActivatedRoute,
+        useValue: {
+          snapshot: {params: {id: '1'}}
+        }
+      }]
     })
     .compileComponents();
   });
@@ -83,8 +40,9 @@ describe('EstudianteDetailComponent', () => {
     fixture = TestBed.createComponent(EstudianteDetailComponent);
     component = fixture.componentInstance;
     claseService = TestBed.inject(ClaseService);
-    component.id = 1;
-    spyOn(claseService, 'consultarEspecifico').and.returnValue(of(clases));
+    estudianteService =  TestBed.inject(EstudianteService);
+    spyOn(claseService, 'consultarEspecifico').and.returnValue(of(clasesTest));
+    spyOn(estudianteService, 'consultarEspecifico').and.returnValue(of(estudianteTest));
     fixture.detectChanges();
   });
 
@@ -92,9 +50,26 @@ describe('EstudianteDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Listar todas las clases de un estudiante en especifico', () => {
-    component.cargarClases();
+  it('Deberia recuperar el id del parametro en la ruta', () => {
+    expect(1).toEqual(component.id);
+  });
 
+  it('Deberia obetener el estudiante', () => {
+    component.ngOnInit();
+    expect(component.estudianteActual).toEqual(estudianteTest);
+  });
+
+  it('Deberia utilizar el servicio para cargar las clases', () => {
+    component.cargarClases();
     expect(claseService.consultarEspecifico).toHaveBeenCalled();
   });
+
+  it('Deberia listar las clases', () => {
+    component.ngOnInit();
+    component.clasesEstudiante.subscribe(resultado => {
+      expect(resultado).toBe(clasesTest);
+    });
+  });
+
+
 });

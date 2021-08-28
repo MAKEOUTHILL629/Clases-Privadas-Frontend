@@ -59,7 +59,7 @@ describe('HorarioService', () => {
     });
 
     const req = httpMock.expectOne(`${apiEndpointHorarios}/${dummyHorario.id}`);
-    expect(req.request.method).toBe('POST');
+    expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({ body: true }));
   });
 

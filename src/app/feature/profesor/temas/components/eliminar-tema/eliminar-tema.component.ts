@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TemaService } from '@feature/profesor/shared/service/tema/tema.service';
 
 @Component({
@@ -10,9 +10,14 @@ export class EliminarTemaComponent implements OnInit {
   @Input()
   idTemaEliminar: number;
 
+  @Output() seElimino: EventEmitter<boolean> = new EventEmitter();
+
   constructor(protected temaService: TemaService) { }
 
   ngOnInit(): void {
   }
 
+  eliminarTema(){
+    this.temaService.eliminar(this.idTemaEliminar).subscribe(() => this.seElimino.emit(true));
+  }
 }

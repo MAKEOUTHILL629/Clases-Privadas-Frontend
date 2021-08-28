@@ -3,11 +3,12 @@ import { HttpService } from '@core/services/http.service';
 import { Tema } from '../../model/tema/tema';
 import { environment } from 'src/environments/environment.dev';
 import { TemaSalida } from '../../model/tema/tema-salida';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class TemaService {
 
-  constructor(protected http: HttpService) { }
+  constructor(protected http: HttpService, protected httpClient: HttpClient) { }
 
   public consultar(){
     return this.http.doGet<Tema[]>(`${environment.endpoint}/temas-profesor`, this.http.optsName('Listar temas'));
@@ -23,7 +24,7 @@ export class TemaService {
   }
 
   public actualizar(temaActualizar: TemaSalida, idTema: number){
-    return this.http.doPost(`${environment.endpoint}/temas/${idTema}`, temaActualizar, this.http.optsName('Actualizar un tema'));
+    return this.httpClient.put(`${environment.endpoint}/temas/${idTema}`, temaActualizar, this.http.optsName('Actualizar un tema'));
   }
 
   public eliminar(idTema: number){

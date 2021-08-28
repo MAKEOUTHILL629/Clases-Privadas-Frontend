@@ -1,29 +1,29 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
-import { TemaService } from '@feature/profesor/shared/service/tema/tema.service';
+import { HorarioService } from '@feature/profesor/shared/service/horario/horario.service';
 
-import { EliminarTemaComponent } from './eliminar-tema.component';
+import { ActualizarHorarioComponent } from './actualizar-horario.component';
 
-describe('EliminarTemaComponent', () => {
-  let component: EliminarTemaComponent;
-  let fixture: ComponentFixture<EliminarTemaComponent>;
+describe('ActualizarHorarioComponent', () => {
+  let component: ActualizarHorarioComponent;
+  let fixture: ComponentFixture<ActualizarHorarioComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EliminarTemaComponent ],
+      declarations: [ ActualizarHorarioComponent ],
       imports: [RouterTestingModule,
         HttpClientModule, ReactiveFormsModule,
         FormsModule],
-      providers: [HttpService, TemaService]
+      providers: [HttpService, HttpClient, HorarioService]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EliminarTemaComponent);
+    fixture = TestBed.createComponent(ActualizarHorarioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

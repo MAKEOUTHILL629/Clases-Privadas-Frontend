@@ -4,7 +4,7 @@ import { ProfesorService } from '../../shared/service/profesor.service';
 import { Profesor } from '../../shared/model/profesor';
 import { TemaService } from '@feature/profesor/shared/service/tema/tema.service';
 import { Tema } from '@feature/profesor/shared/model/tema/tema';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HorarioService } from '@feature/profesor/shared/service/horario/horario.service';
 import { Horario } from '@feature/profesor/shared/model/horario/horario';
 
@@ -15,12 +15,10 @@ import { Horario } from '@feature/profesor/shared/model/horario/horario';
 })
 export class ProfesorDetailComponent implements OnInit {
   id: number;
-
   profesorActual: Profesor;
-
   temasProfesorActual: Observable<Tema[]>;
   horariosProfesorActual: Observable<Horario[]>;
-  subscription: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     protected profesorService: ProfesorService,
@@ -28,15 +26,15 @@ export class ProfesorDetailComponent implements OnInit {
     protected horarioService: HorarioService
   ) {
     this.id = +this.route.snapshot.params.id;
-
-    this.profesorService
-      .consultarEspecifico(this.id)
-      .subscribe(
-        async (profesor: Profesor) => (this.profesorActual = await profesor)
-      );
   }
 
   ngOnInit(): void {
+    this.profesorService
+      .consultarEspecifico(this.id)
+      .subscribe(
+        (profesor: Profesor) => (this.profesorActual = profesor)
+      );
+
     this.cargarHorarios();
     this.cargarTemas();
   }
@@ -46,8 +44,6 @@ export class ProfesorDetailComponent implements OnInit {
   }
 
   cargarHorarios(): void {
-    this.horariosProfesorActual = this.horarioService.consultarEspecifico(
-      this.id
-    );
+    this.horariosProfesorActual = this.horarioService.consultarEspecifico(this.id);
   }
 }

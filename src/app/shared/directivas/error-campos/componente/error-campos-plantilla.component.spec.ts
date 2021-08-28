@@ -8,9 +8,9 @@ describe('ErrorCamposPlantillaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorCamposPlantillaComponent ]
+      declarations: [ErrorCamposPlantillaComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

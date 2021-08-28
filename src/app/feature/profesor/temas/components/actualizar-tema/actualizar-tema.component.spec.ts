@@ -1,29 +1,29 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { TemaService } from '@feature/profesor/shared/service/tema/tema.service';
 
-import { EliminarTemaComponent } from './eliminar-tema.component';
+import { ActualizarTemaComponent } from './actualizar-tema.component';
 
-describe('EliminarTemaComponent', () => {
-  let component: EliminarTemaComponent;
-  let fixture: ComponentFixture<EliminarTemaComponent>;
+describe('ActualizarTemaComponent', () => {
+  let component: ActualizarTemaComponent;
+  let fixture: ComponentFixture<ActualizarTemaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EliminarTemaComponent ],
+      declarations: [ ActualizarTemaComponent ],
       imports: [RouterTestingModule,
         HttpClientModule, ReactiveFormsModule,
         FormsModule],
-      providers: [HttpService, TemaService]
+      providers: [HttpClient, HttpService, TemaService]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EliminarTemaComponent);
+    fixture = TestBed.createComponent(ActualizarTemaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

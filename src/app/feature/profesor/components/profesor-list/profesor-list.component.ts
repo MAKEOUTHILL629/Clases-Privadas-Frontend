@@ -10,7 +10,6 @@ import { Profesor } from '../../shared/model/profesor';
 })
 export class ProfesorListComponent implements OnInit {
 
-
   public listarProfesores: Observable<Profesor[]>;
   constructor(protected profesorService: ProfesorService) { }
 

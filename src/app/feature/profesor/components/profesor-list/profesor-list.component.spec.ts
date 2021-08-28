@@ -60,8 +60,11 @@ describe('ProfesorListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Deberia listar los profesores', () => {
     component.listarProfesores.subscribe(resultado => {
-      expect(2).toBe(resultado.length);
+      expect(listaProfesores).toEqual(resultado);
     });
   });
 });

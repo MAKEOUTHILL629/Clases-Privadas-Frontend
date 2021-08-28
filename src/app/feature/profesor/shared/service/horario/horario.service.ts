@@ -3,13 +3,14 @@ import { HttpService } from '@core/services/http.service';
 import { Horario } from '../../model/horario/horario';
 import { environment } from 'src/environments/environment.dev';
 import { HorarioSalida } from '../../model/horario/horario-salida';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable()
 export class HorarioService {
 
 
-  constructor(protected http: HttpService) { }
+  constructor(protected http: HttpService, protected httpClient: HttpClient) { }
   get refresh$() {
     return this.refresh$;
   }
@@ -37,7 +38,7 @@ export class HorarioService {
   }
 
   public actualizar(horarioActualizar: HorarioSalida, idHorario: number) {
-    return this.http.doPost(
+    return this.httpClient.put(
       `${environment.endpoint}/horarios/${idHorario}`,
       horarioActualizar,
       this.http.optsName('Actualizar un horario')

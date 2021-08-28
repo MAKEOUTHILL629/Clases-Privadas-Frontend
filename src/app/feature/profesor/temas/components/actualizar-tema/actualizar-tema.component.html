@@ -1,0 +1,63 @@
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-bs-toggle="modal"
+  [attr.data-bs-target]="'#' + 'temaActualizar' + idTemaActualizar"
+>
+  <i class="bi bi-pencil-fill"></i>
+</button>
+<div
+  class="modal fade"
+  [id]="'temaActualizar' + idTemaActualizar"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Tema</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form [formGroup]="formTemaActualizar" (ngSubmit)="actualizarTema()">
+        <div class="modal-body">
+          <input
+            [class.is-invalid]="
+              formTemaActualizar.get('temaActualizarText').touched &&
+              formTemaActualizar.get('temaActualizarText').invalid
+            "
+            type="text"
+            class="form-control"
+            placeholder="Calculo Diferencial"
+            aria-label="Agregar un tema"
+            aria-describedby="button-addon"
+            formControlName="temaActualizarText"
+            required="true"
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            [disabled]="formTemaActualizar.invalid"
+            type="submit"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+          >
+            Actualizar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

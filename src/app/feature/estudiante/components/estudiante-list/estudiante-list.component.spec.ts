@@ -61,8 +61,12 @@ describe('EstudianteListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('deberia retornar la lista de usuarios', () => {
+    component.ngOnInit();
     component.listaEstudiantes.subscribe(resultado => {
-      expect(2).toBe(resultado.length);
+     expect(listaDeEstudiante).toBe(resultado);
     });
   });
 
