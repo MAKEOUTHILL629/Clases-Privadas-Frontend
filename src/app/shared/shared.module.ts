@@ -10,6 +10,7 @@ import { TrackByPipe } from './pipe/track-by.pipe';
 import { CardProfesorComponent } from './components/cards/card-profesor/card-profesor.component';
 import { RouterModule } from '@angular/router';
 import { CardEstudianteComponent } from './components/cards/card-estudiante/card-estudiante.component';
+import { MostrarNotificacionComponent } from './components/notificaciones/mostrar-notificacion/mostrar-notificacion.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CardEstudianteComponent } from './components/cards/card-estudiante/card
     TrackByPipe,
     CardProfesorComponent,
     CardEstudianteComponent,
+    MostrarNotificacionComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -38,7 +40,8 @@ import { CardEstudianteComponent } from './components/cards/card-estudiante/card
     FormsModule,
     TrackByPipe,
     CardProfesorComponent,
-    CardEstudianteComponent
+    CardEstudianteComponent,
+    MostrarNotificacionComponent
   ],
 })
 export class SharedModule {}

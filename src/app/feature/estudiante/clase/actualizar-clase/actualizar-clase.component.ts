@@ -1,6 +1,6 @@
-import { formatDate } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { fechaActualConFormato, formatoFecha } from '@core/modelo/manejo-fecha';
 import { ClaseCompleta } from '@feature/estudiante/shared/model/clase/clase-compuesta';
 import { ClaseSalida } from '@feature/estudiante/shared/model/clase/clase-salida';
 import { ClaseService } from '@feature/estudiante/shared/service/clase/clase.service';
@@ -14,6 +14,8 @@ import { Observable } from 'rxjs/internal/Observable';
   styleUrls: ['./actualizar-clase.component.css'],
 })
 export class ActualizarClaseComponent implements OnInit {
+  diaActual: string;
+
   formActualizarClase: FormGroup;
   @Input()
   claseActualizar: ClaseCompleta;
@@ -39,25 +41,26 @@ export class ActualizarClaseComponent implements OnInit {
   ngOnInit(): void {
     this.profesores = this.profesorService.consultar();
     this.construirFormularioClase();
+    this.diaActual = fechaActualConFormato();
   }
 
   actualizarClase() {
-
     const claseActualizar: ClaseSalida = {
       idEstudiante: this.claseActualizar.estudianteDTO.id,
       idProfesor: this.formActualizarClase.get('profesorActualizar').value,
-      fecha: formatDate(
-        new Date(this.formActualizarClase.get('horaActualizar').value),
-        'YYYY-MM-dd hh:mm:ss',
-        'en-US'
-      ),
+      fecha: formatoFecha(this.formActualizarClase.get('horaActualizar').value)
     };
+
     this.claseService
       .actualizar(claseActualizar, this.claseActualizar.id)
-      .subscribe(() => this.seActualizo.emit(true));
+      .subscribe(() => {
+        this.seActualizo.emit(true);
+      }, () => {
+        this.seActualizo.emit(false);
+      });
+
+    this.formActualizarClase.reset();
   }
 
-  dia(): string {
-    return formatDate(new Date(), 'YYYY-MM-ddThh:mm', 'en-US');
-  }
+
 }

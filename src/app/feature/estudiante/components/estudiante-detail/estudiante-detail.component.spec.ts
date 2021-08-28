@@ -71,5 +71,21 @@ describe('EstudianteDetailComponent', () => {
     });
   });
 
+  it('Deberia mostar mensaje de estado correcto', () => {
+    component.cargarClases(true, 'crear');
+    expect(component.estado).toBe('bien');
+    expect(component.mensaje).toBe('crear la clase funciono correctamente');
+  });
 
+  it('Deberia mostrar mensaje de estado erroneo', () => {
+    component.cargarClases(false, 'crear');
+    expect(component.estado).toBe('error');
+    expect(component.mensaje).not.toBe('crear la clase funciono correctamente');
+  });
+
+  it('Deberia no mostrar nada, sin estado', () => {
+    component.cargarClases();
+    expect(component.estado).not.toBe('error');
+    expect(component.mensaje).not.toBe('crear la clase funciono correctamente');
+  });
 });

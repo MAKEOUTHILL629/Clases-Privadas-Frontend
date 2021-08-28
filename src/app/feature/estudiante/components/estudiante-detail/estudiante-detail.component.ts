@@ -18,7 +18,8 @@ export class EstudianteDetailComponent implements OnInit {
   id: number;
   estudianteActual: Estudiante;
   clasesEstudiante: Observable<ClaseCompleta[]>;
-
+  estado: string;
+  mensaje: string;
   constructor(
     private route: ActivatedRoute,
     protected estudianteService: EstudianteService,
@@ -36,7 +37,18 @@ export class EstudianteDetailComponent implements OnInit {
     this.clasesEstudiante = this.claseService.consultarEspecifico(this.id);
   }
 
-  cargarClases(): void{
-    this.clasesEstudiante = this.claseService.consultarEspecifico(this.id);
+  cargarClases(estado?: boolean, mensaje?: string): void{
+    if (estado){
+      this.estado = 'bien';
+      this.mensaje =  mensaje + ' la clase funciono correctamente';
+      this.clasesEstudiante = this.claseService.consultarEspecifico(this.id);
+    }else if (estado === false){
+      this.estado = 'error';
+      this.mensaje = 'Ocurrio un error, al momento de ' + mensaje + ' la clase, intente nuevamente';
+    }else{
+      this.clasesEstudiante = this.claseService.consultarEspecifico(this.id);
+    }
+
+    setTimeout(() => this.estado = ' ', 10000 );
   }
 }

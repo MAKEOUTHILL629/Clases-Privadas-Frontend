@@ -1,5 +1,6 @@
 <h2 class="text-center fs-2 fw-bolder">Estudiante Detalle</h2>
 <div class="card   w-75 mx-auto py-4" >
+  <app-mostrar-notificacion [estado]="estado" [mensaje]="mensaje"></app-mostrar-notificacion>
   <div class="row g-0 justify-content-around align-items-center">
 
     <div class="col-md-3">
@@ -11,6 +12,7 @@
     </div>
 
     <div class="col-md-8 mx-1 ">
+
       <table class="table table-striped shadow  rounded">
         <thead>
           <tr>
@@ -26,13 +28,13 @@
             <th  scope="row">{{ clase.profesorDTO.persona.nombres + " "+ clase.profesorDTO.persona.apellidos }}</th>
             <td>{{ clase.fecha }}</td>
             <td>{{ clase.valor }}</td>
-            <td><app-actualizar-clase  [claseActualizar]="clase"  (seActualizo)="cargarClases()"></app-actualizar-clase></td>
-            <td> <app-eliminar-clase [idClase]="clase.id" (seElimino)="cargarClases()"></app-eliminar-clase> </td>
+            <td><app-actualizar-clase  [claseActualizar]="clase"  (seActualizo)="cargarClases($event, 'actualizar')"></app-actualizar-clase></td>
+            <td> <app-eliminar-clase [idClase]="clase.id" (seElimino)="cargarClases($event, 'eliminar')"></app-eliminar-clase> </td>
           </tr>
         </tbody>
       </table>
 
-      <app-crear-clase *ngIf="estudianteActual" [idEstudiante]="estudianteActual.id" (seCreo)="cargarClases()" ></app-crear-clase>
+      <app-crear-clase *ngIf="estudianteActual" [idEstudiante]="estudianteActual.id" (seCreo)="cargarClases($event, 'crear')" ></app-crear-clase>
 
     </div>
 

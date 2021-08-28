@@ -1,0 +1,12 @@
+<div class="alert alert-success d-flex justify-content-center" role="alert" *ngIf="estado === 'bien'">
+  <i class="bi bi-check-circle-fill"></i>
+  <div>
+      {{ mensaje }}
+  </div>
+</div>
+<div class="alert alert-danger d-flex justify-content-center" role="alert" *ngIf="estado === 'error'">
+  <i class="bi bi-x-circle-fill ml-2"></i>
+  <div>
+    {{ mensaje }}
+  </div>
+</div>

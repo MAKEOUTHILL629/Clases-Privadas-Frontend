@@ -25,7 +25,7 @@ export class ClaseService {
   }
 
   public actualizar(claseActualizar: ClaseSalida, idClase: number) {
-    return this.httpClient.put(`${environment.endpoint}/clase/${idClase}`, claseActualizar, this.http.optsName('Actualizar una clase'));
+    return this.httpClient.put<boolean>(`${environment.endpoint}/clase/${idClase}`, claseActualizar, this.http.optsName('Actualizar una clase'));
   }
 
   public eliminar(idClase: number) {

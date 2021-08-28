@@ -34,3 +34,27 @@ export const profesor: Profesor = {
   persona: person,
   profesion: 'Programador',
 };
+
+
+export const profesores: Profesor[] = [
+  {
+    id: 1,
+    persona: {
+      id: 3,
+      nombres: 'Prueba',
+      apellidos: 'Prueba',
+      cedula: '12321321',
+    },
+    profesion: 'Cardiologo',
+  },
+  {
+    id: 2,
+    persona: {
+      id: 4,
+      nombres: 'Prueba 2',
+      apellidos: 'Prueba 2',
+      cedula: '12321312',
+    },
+    profesion: 'Programador',
+  },
+];

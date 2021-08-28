@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { Profesor } from '@feature/profesor/shared/model/profesor';
 import { ProfesorService } from '@feature/profesor/shared/service/profesor.service';
+import { profesores } from '@shared/mocks/mock-profesor';
 import { of } from 'rxjs';
 
 import { ProfesorListComponent } from './profesor-list.component';
@@ -13,28 +14,7 @@ describe('ProfesorListComponent', () => {
   let component: ProfesorListComponent;
   let fixture: ComponentFixture<ProfesorListComponent>;
   let profesorService: ProfesorService;
-  const listaProfesores: Profesor[] = [
-    {
-      id: 1,
-      persona: {
-        id: 3,
-        nombres: 'Prueba',
-        apellidos: 'Prueba',
-        cedula: '12321321',
-      },
-      profesion: 'Cardiologo',
-    },
-    {
-      id: 2,
-      persona: {
-        id: 4,
-        nombres: 'Prueba 2',
-        apellidos: 'Prueba 2',
-        cedula: '12321312',
-      },
-      profesion: 'Programador',
-    },
-  ];
+  const listaProfesores: Profesor[] = profesores;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -67,4 +47,5 @@ describe('ProfesorListComponent', () => {
       expect(listaProfesores).toEqual(resultado);
     });
   });
+
 });

@@ -17,9 +17,8 @@ export class EliminarClaseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  eliminarClase(){
-    this.claseService.eliminar(this.idClase).subscribe(() => this.seElimino.emit(true));
-
+  eliminarClase() {
+    this.claseService.eliminar(this.idClase).subscribe(() => this.seElimino.emit(true), () => this.seElimino.emit(false));
   }
 
 }

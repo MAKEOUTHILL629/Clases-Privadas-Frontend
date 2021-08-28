@@ -13,18 +13,18 @@ describe('EliminarClaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EliminarClaseComponent ],
+      declarations: [EliminarClaseComponent],
       imports: [HttpClientModule],
       providers: [HttpService, ClaseService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(EliminarClaseComponent);
     component = fixture.componentInstance;
     claseService = TestBed.inject(ClaseService);
-    spyOn(claseService, 'eliminar').and.returnValue( of(true));
+    spyOn(claseService, 'eliminar').and.returnValue(of(true));
     fixture.detectChanges();
   });
 

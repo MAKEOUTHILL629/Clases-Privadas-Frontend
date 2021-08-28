@@ -1,29 +1,12 @@
 <form [formGroup]="formClase" (ngSubmit)="guardarClase()">
   <div class="row">
-    <select
-      name=""
-      id="id-profesor"
-      class="form-select mb-2"
-      formControlName="profesor"
-      (change)="onSelect($event.target.value)"
-      required
-      *ngIf="profesores"
-    >
-      <option
-        *ngFor="let profesor of profesores | async"
-        value="{{ profesor.id }}"
-      >
+    <select name="" id="id-profesor" class="form-select mb-2" formControlName="profesor" required *ngIf="profesores">
+      <option *ngFor="let profesor of profesores | async" value="{{ profesor.id }}">
         {{ profesor.persona.nombres }}
       </option>
     </select>
-    <input
-      class="mb-2 form-control"
-      type="datetime-local"
-      id="fecha-crear"
-      min="{{ dia() }}"
-      formControlName="horaCita"
-      required
-    />
+    <input class="mb-2 form-control" type="datetime-local" id="fecha-crear" min="{{ diaActual }}"
+      formControlName="horaCita" required />
 
     <button [disabled]="formClase.invalid" class="btn btn-primary" id="crear-clase">Agendar Clase</button>
   </div>
