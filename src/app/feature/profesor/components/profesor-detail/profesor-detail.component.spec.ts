@@ -84,4 +84,40 @@ describe('ProfesorDetailComponent', () => {
     expect(temaService.consultarEspecifico).toHaveBeenCalled();
   });
 
+  it('Deberia mostar mensaje de estado correcto en los horarios', () => {
+    component.cargarHorarios(true, 'crear');
+    expect(component.estado).toBe('bien');
+    expect(component.mensaje).toBe('crear el horario funciono correctamente');
+  });
+
+  it('Deberia mostar mensaje de estado correcto en los temas', () => {
+    component.cargarTemas(true, 'crear');
+    expect(component.estado).toBe('bien');
+    expect(component.mensaje).toBe('crear el tema funciono correctamente');
+  });
+
+  it('Deberia mostrar mensaje de estado erroneo de horarios', () => {
+    component.cargarHorarios(false, 'crear');
+    expect(component.estado).toBe('error');
+    expect(component.mensaje).not.toBe('crear el horario funciono correctamente');
+  });
+
+  it('Deberia mostrar mensaje de estado erroneo de temas', () => {
+    component.cargarTemas(false, 'crear');
+    expect(component.estado).toBe('error');
+    expect(component.mensaje).not.toBe('crear el tema funciono correctamente');
+  });
+
+  it('Deberia no mostrar nada, sin estado al momento de los temas', () => {
+    component.cargarTemas();
+    expect(component.estado).not.toBe('error');
+    expect(component.mensaje).not.toBe('crear el tema funciono correctamente');
+  });
+
+  it('Deberia no mostrar nada, sin estado al momento de los horarios', () => {
+    component.cargarHorarios();
+    expect(component.estado).not.toBe('error');
+    expect(component.mensaje).not.toBe('crear el tema funciono correctamente');
+  });
+
 });

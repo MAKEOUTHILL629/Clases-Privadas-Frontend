@@ -50,10 +50,8 @@ describe('CrearTemaComponent', () => {
     expect(component.temaForm.valid).toBeFalsy();
     component.temaForm.controls.tema.setValue('CALCULO');
     expect(component.temaForm.valid).toBeTruthy();
-
     component.guardarTema();
-
-
+    expect(temaService.guardar).toHaveBeenCalled();
   });
 
 });

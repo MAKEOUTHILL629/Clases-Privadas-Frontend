@@ -42,6 +42,8 @@ export class ActualizarHorarioComponent implements OnInit {
     };
 
     this.horarioService.actualizar(horario, this.idHorario)
-                        .subscribe(() => this.seActualizo.emit(true), () => this.seActualizo.emit(false));
+      .subscribe(() => this.seActualizo.emit(true), () => this.seActualizo.emit(false));
+
+    this.formHorarioActualizar.reset();
   }
 }

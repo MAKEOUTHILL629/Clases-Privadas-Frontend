@@ -40,36 +40,36 @@ export class ProfesorDetailComponent implements OnInit {
     this.cargarTemas();
   }
 
-  cargarTemas(estado?: boolean, mensaje?: string): void{
-    if (estado){
+  cargarTemas(estado?: boolean, mensaje?: string): void {
+    if (estado) {
       this.estado = 'bien';
-      this.mensaje =  mensaje + ' el tema funciono correctamente';
+      this.mensaje = mensaje + ' el tema funciono correctamente';
       this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
-    }else if (estado === false){
+    } else if (estado === false) {
       this.estado = 'error';
       this.mensaje = 'Ocurrio un error, al momento de ' + mensaje + ' el tema, intente nuevamente';
-    }else{
+    } else {
 
       this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
 
     }
 
-    setTimeout(() => this.estado = ' ', 10000 );
+    setTimeout(() => this.estado = ' ', 10000);
   }
 
-  cargarHorarios(estado?: boolean, mensaje?: string): void{
-    if (estado){
+  cargarHorarios(estado?: boolean, mensaje?: string): void {
+    if (estado) {
       this.estado = 'bien';
-      this.mensaje =  mensaje + ' el horario funciono correctamente';
+      this.mensaje = mensaje + ' el horario funciono correctamente';
       this.horariosProfesorActual = this.horarioService.consultarEspecifico(this.id);
-    }else if (estado === false){
+    } else if (estado === false) {
       this.estado = 'error';
       this.mensaje = 'Ocurrio un error, al momento de ' + mensaje + ' el horario, intente nuevamente';
-    }else{
+    } else {
       this.horariosProfesorActual = this.horarioService.consultarEspecifico(this.id);
     }
 
-    setTimeout(() => this.estado = ' ', 10000 );
+    setTimeout(() => this.estado = ' ', 10000);
   }
 
 }

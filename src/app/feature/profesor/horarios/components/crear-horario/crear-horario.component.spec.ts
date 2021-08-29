@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -20,7 +19,6 @@ describe('CrearHorarioComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [CrearHorarioComponent],
-        schemas: [NO_ERRORS_SCHEMA],
         imports: [
           CommonModule,
           HttpClientModule,
@@ -54,7 +52,7 @@ describe('CrearHorarioComponent', () => {
     component.horarioForm.controls.diaSemana.setValue(DiasSemana.LUNES);
     component.horarioForm.controls.hora.setValue('02:00');
     expect(component.horarioForm.valid).toBeTruthy();
-
     component.guardarHorario();
+    expect(horarioService.guardar).toHaveBeenCalled();
   });
 });

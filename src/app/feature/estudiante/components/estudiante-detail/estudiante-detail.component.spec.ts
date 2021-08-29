@@ -54,7 +54,7 @@ describe('EstudianteDetailComponent', () => {
     expect(1).toEqual(component.id);
   });
 
-  it('Deberia obetener el estudiante', () => {
+  it('Deberia obtener el estudiante', () => {
     component.ngOnInit();
     expect(component.estudianteActual).toEqual(estudianteTest);
   });

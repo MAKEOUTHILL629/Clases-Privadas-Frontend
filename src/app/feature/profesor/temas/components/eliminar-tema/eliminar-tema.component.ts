@@ -17,7 +17,7 @@ export class EliminarTemaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  eliminarTema(){
+  eliminarTema() {
     this.temaService.eliminar(this.idTemaEliminar).subscribe(() => this.seElimino.emit(true), () => this.seElimino.emit(false));
   }
 }
