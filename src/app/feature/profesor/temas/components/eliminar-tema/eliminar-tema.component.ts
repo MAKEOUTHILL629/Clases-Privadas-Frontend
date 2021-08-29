@@ -18,6 +18,6 @@ export class EliminarTemaComponent implements OnInit {
   }
 
   eliminarTema(){
-    this.temaService.eliminar(this.idTemaEliminar).subscribe(() => this.seElimino.emit(true));
+    this.temaService.eliminar(this.idTemaEliminar).subscribe(() => this.seElimino.emit(true), () => this.seElimino.emit(false));
   }
 }

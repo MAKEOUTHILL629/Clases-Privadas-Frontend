@@ -26,18 +26,6 @@ export class CrearTemaComponent implements OnInit {
     this.construirFormularioTema();
   }
 
-  guardarTema() {
-    const temaSalida: TemaSalida = {
-      idProfesor: this.id,
-      tema: this.temaForm.get('tema').value,
-    };
-    this.temaService
-      .guardar(temaSalida)
-      .subscribe(() => this.seCreoTema.emit(true));
-
-    this.temaForm.reset();
-  }
-
   private construirFormularioTema() {
     this.temaForm = new FormGroup({
       tema: new FormControl('', [
@@ -47,4 +35,18 @@ export class CrearTemaComponent implements OnInit {
       ]),
     });
   }
+
+  guardarTema() {
+    const temaSalida: TemaSalida = {
+      idProfesor: this.id,
+      tema: this.temaForm.get('tema').value,
+    };
+    this.temaService
+      .guardar(temaSalida)
+      .subscribe(() => this.seCreoTema.emit(true), () => this.seCreoTema.emit(false));
+
+    this.temaForm.reset();
+  }
+
+
 }

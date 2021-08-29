@@ -19,7 +19,7 @@ export class EliminarHorarioComponent implements OnInit {
   }
 
   eliminarHoriario(){
-    this.horarioService.eliminar(this.idHorario).subscribe(() => this.seElimino.emit(true));
+    this.horarioService.eliminar(this.idHorario).subscribe(() => this.seElimino.emit(true), () => this.seElimino.emit(false));
   }
 
 }

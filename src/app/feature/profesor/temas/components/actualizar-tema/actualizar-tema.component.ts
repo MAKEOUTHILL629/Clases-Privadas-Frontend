@@ -40,16 +40,16 @@ export class ActualizarTemaComponent implements OnInit {
     });
   }
 
-  actualizarTema(){
-
+  actualizarTema() {
     const temaActualizar: TemaSalida = {
       idProfesor: this.idProfesor,
       tema: this.formTemaActualizar.get('temaActualizarText').value
     };
 
-    console.log(temaActualizar);
+    this.temaService.actualizar(temaActualizar, this.idTemaActualizar)
+      .subscribe(() => this.seActualizo.emit(true), () => this.seActualizo.emit(true));
 
-    this.temaService.actualizar(temaActualizar, this.idTemaActualizar).subscribe(() => this.seActualizo.emit(true));
+    this.formTemaActualizar.reset();
   }
 
 }

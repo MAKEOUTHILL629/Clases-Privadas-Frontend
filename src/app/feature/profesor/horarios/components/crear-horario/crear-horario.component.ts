@@ -22,6 +22,13 @@ export class CrearHorarioComponent implements OnInit {
     this.construirFormularioHorario();
   }
 
+  private construirFormularioHorario() {
+    this.horarioForm = new FormGroup({
+      diaSemana: new FormControl('', [Validators.required]),
+      hora: new FormControl('', [Validators.required]),
+    });
+  }
+
   guardarHorario() {
     const horarioGuardar: HorarioSalida = {
       idProfesor: this.id,
@@ -30,15 +37,10 @@ export class CrearHorarioComponent implements OnInit {
     };
     this.horarioService
       .guardar(horarioGuardar)
-      .subscribe(() => this.seCreoHorario.emit(true));
+      .subscribe(() => this.seCreoHorario.emit(true), () => this.seCreoHorario.emit(false));
 
     this.horarioForm.reset();
   }
 
-  private construirFormularioHorario() {
-    this.horarioForm = new FormGroup({
-      diaSemana: new FormControl('', [Validators.required]),
-      hora: new FormControl('', [Validators.required]),
-    });
-  }
+
 }

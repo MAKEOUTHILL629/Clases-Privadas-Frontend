@@ -1,33 +1,30 @@
 <h2 class="text-center fs-2 fw-bolder">Profesor Detalle</h2>
 <div class="card w-75 mx-auto py-4">
+  <app-mostrar-notificacion [estado]="estado" [mensaje]="mensaje"></app-mostrar-notificacion>
   <div class="row g-0 justify-content-around align-items-center">
     <div class="col-md-5" *ngIf="profesorActual">
       <div class="card-body">
         <h5 class="card-title">
           {{
-            profesorActual.persona.nombres +
-              " " +
-              profesorActual.persona.apellidos
+          profesorActual.persona.nombres +
+          " " +
+          profesorActual.persona.apellidos
           }}
         </h5>
         <p class="card-text">{{ profesorActual.profesion }}</p>
       </div>
       <ul class="list-group list-group-flush text-center">
-        <li
-          class="list-group-item"
-          *ngFor="let temaProfesor of temasProfesorActual | async"
-        >
+        <li class="list-group-item" *ngFor="let temaProfesor of temasProfesorActual | async">
 
-            {{ temaProfesor.tema }}
-          <app-actualizar-tema [idTemaActualizar]="temaProfesor.id" [idProfesor]="temaProfesor.idProfesor" (seActualizo)="cargarTemas()"></app-actualizar-tema>
-          <app-eliminar-tema
-            [idTemaEliminar]="temaProfesor.id"
-            (seElimino)="cargarTemas()"
-          ></app-eliminar-tema>
+          {{ temaProfesor.tema }}
+          <app-actualizar-tema [idTemaActualizar]="temaProfesor.id" [idProfesor]="temaProfesor.idProfesor"
+            (seActualizo)="cargarTemas($event, 'actualizar')"></app-actualizar-tema>
+          <app-eliminar-tema [idTemaEliminar]="temaProfesor.id" (seElimino)="cargarTemas($event, 'eliminar')">
+          </app-eliminar-tema>
 
 
         </li>
-        <app-crear-tema [id]="id" (seCreoTema)="cargarTemas()"></app-crear-tema>
+        <app-crear-tema *ngIf="id" [id]="id" (seCreoTema)="cargarTemas($event, 'crear')"></app-crear-tema>
       </ul>
     </div>
 
@@ -41,20 +38,23 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="horariosProfesorActual">
           <tr *ngFor="let horario of horariosProfesorActual | async">
             <th scope="row">{{ horario.diaSemana }}</th>
             <td>{{ horario.hora }}</td>
-            <td><app-eliminar-horario [idHorario]="horario.id" (seElimino)="cargarHorarios()"></app-eliminar-horario></td>
-            <td><app-actualizar-horario [idHorario]="horario.id" [idProfesor]="profesorActual.id"  (seActualizo)="cargarHorarios()"></app-actualizar-horario></td>
+            <td>
+              <app-eliminar-horario [idHorario]="horario.id" (seElimino)="cargarHorarios($event, 'eliminar')">
+              </app-eliminar-horario>
+            </td>
+            <td>
+              <app-actualizar-horario [idHorario]="horario.id" [idProfesor]="profesorActual.id"
+                (seActualizo)="cargarHorarios($event, 'actualizar')"></app-actualizar-horario>
+            </td>
           </tr>
         </tbody>
       </table>
 
-      <app-crear-horario
-        [id]="id"
-        (seCreoHorario)="cargarHorarios()"
-      ></app-crear-horario>
+      <app-crear-horario *ngIf="id" [id]="id" (seCreoHorario)="cargarHorarios($event, 'crear')"></app-crear-horario>
     </div>
   </div>
 </div>

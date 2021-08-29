@@ -41,6 +41,7 @@ export class ActualizarHorarioComponent implements OnInit {
       diaSemana: this.formHorarioActualizar.get('diaSemanaActualizar').value
     };
 
-    this.horarioService.actualizar(horario, this.idHorario).subscribe(() => this.seActualizo.emit(true));
+    this.horarioService.actualizar(horario, this.idHorario)
+                        .subscribe(() => this.seActualizo.emit(true), () => this.seActualizo.emit(false));
   }
 }

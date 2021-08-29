@@ -18,7 +18,8 @@ export class ProfesorDetailComponent implements OnInit {
   profesorActual: Profesor;
   temasProfesorActual: Observable<Tema[]>;
   horariosProfesorActual: Observable<Horario[]>;
-
+  estado: string;
+  mensaje: string;
   constructor(
     private route: ActivatedRoute,
     protected profesorService: ProfesorService,
@@ -39,11 +40,36 @@ export class ProfesorDetailComponent implements OnInit {
     this.cargarTemas();
   }
 
-  cargarTemas(): void {
-    this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
+  cargarTemas(estado?: boolean, mensaje?: string): void{
+    if (estado){
+      this.estado = 'bien';
+      this.mensaje =  mensaje + ' el tema funciono correctamente';
+      this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
+    }else if (estado === false){
+      this.estado = 'error';
+      this.mensaje = 'Ocurrio un error, al momento de ' + mensaje + ' el tema, intente nuevamente';
+    }else{
+
+      this.temasProfesorActual = this.temaService.consultarEspecifico(this.id);
+
+    }
+
+    setTimeout(() => this.estado = ' ', 10000 );
   }
 
-  cargarHorarios(): void {
-    this.horariosProfesorActual = this.horarioService.consultarEspecifico(this.id);
+  cargarHorarios(estado?: boolean, mensaje?: string): void{
+    if (estado){
+      this.estado = 'bien';
+      this.mensaje =  mensaje + ' el horario funciono correctamente';
+      this.horariosProfesorActual = this.horarioService.consultarEspecifico(this.id);
+    }else if (estado === false){
+      this.estado = 'error';
+      this.mensaje = 'Ocurrio un error, al momento de ' + mensaje + ' el horario, intente nuevamente';
+    }else{
+      this.horariosProfesorActual = this.horarioService.consultarEspecifico(this.id);
+    }
+
+    setTimeout(() => this.estado = ' ', 10000 );
   }
+
 }
