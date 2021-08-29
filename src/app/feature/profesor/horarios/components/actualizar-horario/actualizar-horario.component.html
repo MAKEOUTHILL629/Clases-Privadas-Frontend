@@ -26,7 +26,7 @@
       </div>
       <form [formGroup]="formHorarioActualizar" (ngSubmit)="actualizarHorario()">
         <div class="modal-body">
-              <select id="inputState" [class.is-invalid]="formHorarioActualizar.get('diaSemanaActualizar').touched && formHorarioActualizar.get('diaSemanaActualizar').invalid" class="form-select " formControlName="diaSemanaActualizar" required>
+              <select [class.is-invalid]="formHorarioActualizar.get('diaSemanaActualizar').touched && formHorarioActualizar.get('diaSemanaActualizar').invalid" class="form-select " formControlName="diaSemanaActualizar" required>
                 <option selected value="LUNES">Lunes</option>
                 <option value="MARTES">Martes</option>
                 <option value="MIERCOLES">Miercoles</option>
@@ -37,7 +37,7 @@
               </select>
 
 
-            <input class="form-control mt-2" type="time" id="time"  [class.is-invalid]="formHorarioActualizar.get('horaActualizar').touched && formHorarioActualizar.get('horaActualizar').invalid" formControlName="horaActualizar" required />
+            <input class="form-control mt-2" type="time"   [class.is-invalid]="formHorarioActualizar.get('horaActualizar').touched && formHorarioActualizar.get('horaActualizar').invalid" formControlName="horaActualizar" required />
 
 
         </div>

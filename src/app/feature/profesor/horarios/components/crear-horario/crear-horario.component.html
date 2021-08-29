@@ -14,7 +14,7 @@
 
     <input class="col-4 h-50" type="time" id="time"  [class.is-invalid]="horarioForm.get('hora').touched && horarioForm.get('hora').invalid" formControlName="hora" required />
 
-    <button [disabled]="horarioForm.invalid"  class="btn btn-dark col-3 h-50" type="submit" id="button-addon">
+    <button [disabled]="horarioForm.invalid"  class="btn btn-dark col-3 h-50" type="submit">
       Agregar
     </button>
   </div>
