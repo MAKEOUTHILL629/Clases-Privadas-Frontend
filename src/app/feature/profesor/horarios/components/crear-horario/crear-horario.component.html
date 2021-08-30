@@ -1,7 +1,7 @@
 <form [formGroup]="horarioForm" (ngSubmit)="guardarHorario()">
   <div class="row align-items-center">
     <div class="col-5">
-      <select id="inputState" [class.is-invalid]="horarioForm.get('diaSemana').touched && horarioForm.get('diaSemana').invalid" class="form-select" formControlName="diaSemana" required>
+      <select  [class.is-invalid]="horarioForm.get('diaSemana').touched && horarioForm.get('diaSemana').invalid" class="form-select" formControlName="diaSemana" required>
         <option selected value="LUNES">Lunes</option>
         <option value="MARTES">Martes</option>
         <option value="MIERCOLES">Miercoles</option>
@@ -12,7 +12,7 @@
       </select>
     </div>
 
-    <input class="col-4 h-50" type="time" id="time"  [class.is-invalid]="horarioForm.get('hora').touched && horarioForm.get('hora').invalid" formControlName="hora" required />
+    <input class="col-4 h-50" type="time"   [class.is-invalid]="horarioForm.get('hora').touched && horarioForm.get('hora').invalid" formControlName="hora" required />
 
     <button [disabled]="horarioForm.invalid"  class="btn btn-dark col-3 h-50" type="submit">
       Agregar
